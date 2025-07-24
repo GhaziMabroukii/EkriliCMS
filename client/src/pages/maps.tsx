@@ -344,14 +344,14 @@ function MapFiltersPanel({
           Catégorie
         </Label>
         <Select 
-          value={filters.category || ""} 
-          onValueChange={(value) => onFilterChange("category", value || undefined)}
+          value={filters.category || "all"} 
+          onValueChange={(value) => onFilterChange("category", value === "all" ? undefined : value)}
         >
           <SelectTrigger>
             <SelectValue placeholder="Toutes les catégories" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">Toutes les catégories</SelectItem>
+            <SelectItem value="all">Toutes les catégories</SelectItem>
             {PROPERTY_CATEGORIES.map((category) => (
               <SelectItem key={category.id} value={category.id}>
                 {category.icon} {category.label}
@@ -367,14 +367,14 @@ function MapFiltersPanel({
           Région
         </Label>
         <Select 
-          value={filters.region || ""} 
-          onValueChange={(value) => onFilterChange("region", value || undefined)}
+          value={filters.region || "all"} 
+          onValueChange={(value) => onFilterChange("region", value === "all" ? undefined : value)}
         >
           <SelectTrigger>
             <SelectValue placeholder="Toutes les régions" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">Toutes les régions</SelectItem>
+            <SelectItem value="all">Toutes les régions</SelectItem>
             {TUNISIA_REGIONS.map((region) => (
               <SelectItem key={region} value={region}>
                 {region}
